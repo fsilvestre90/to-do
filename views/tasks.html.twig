@@ -6,18 +6,19 @@
     <body>
         <div class="container">
         <h1>Tasks</h1>
+
         {% if tasks is not empty %}
             <p>Here are all your tasks:</p>
             <ul>
                 {% for task in tasks %}
-                    <li>{{ task.getDescription }}</li>
+                    <li><a href='/tasks/{{ tasks.getId }}'>{{ task.getDescription }}</a></li>
                 {% endfor %}
             </ul>
         {% endif %}
 
         <form action="/tasks" method="post">
-            <label for="name">Task Name</label>
-            <input id="name" name="name" type="date">
+            <label for="description">Task:</label>
+            <input id="description" name="description" type="text">
 
             <button class="btn btn-default" type="submit">Add task</button>
         </form>
