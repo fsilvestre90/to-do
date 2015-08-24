@@ -2,7 +2,7 @@ To-Do App
 
 To-Do via Silex/Twig
 
-By Tim White, Filipe Silvestre
+By Deron Johnson, Filipe Silvestre
 
 Description
 
@@ -21,7 +21,7 @@ PHP and Silex and Twig
 
 Legal
 
-Copyright (c) 2015 {List of contribtors}
+Copyright (c) 2015 Deron Johnson, Filipe Silvestre
 
 This software is licensed under the MIT license.
 
