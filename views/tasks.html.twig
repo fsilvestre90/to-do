@@ -17,8 +17,14 @@
         {% endif %}
 
         <form action="/tasks" method="post">
-            <label for="description">Task:</label>
-            <input id="description" name="description" type="text">
+            <div class="form-group">
+                <label for="description">Task:</label>
+                <input id="description" name="description" type="text">
+            </div>
+            <div class='from-group'>
+                <label for="due_date">Due by:</label>
+                <input type="date" name="due_date" id="due_date">
+            </div>
 
             <button class="btn btn-default" type="submit">Add task</button>
         </form>

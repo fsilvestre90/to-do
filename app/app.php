@@ -32,8 +32,8 @@
 
     $app->post("/tasks", function() use ($app){
         $description = $_POST['description'];
-        // $due_date = $_POST['due_date'];
-        $task = new Task($description, $id = null);
+        $due_date = $_POST['due_date'];
+        $task = new Task($description, $id = null, $due_date);
         $task->save();
         return $app['twig']->render('category.html.twig', array('tasks' => Task::getAll()));
 
