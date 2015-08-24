@@ -88,19 +88,17 @@ class Category
 
     function getTasks()
     {
-        $query = $GLOBALS['DB']->query("SELECT task_id FROM categories_tasks WHERE category_id = {$this->getId()};");
+        $query = $GLOBALS['DB']->query("SELECT categories_tasks.task_id, tasks.due_date, tasks.description FROM categories_tasks INNER JOIN tasks ON categories_tasks.category_id = {$this->getId()} ORDER BY tasks.due_date ASC;");
         $task_ids = $query->fetchAll(PDO::FETCH_ASSOC);
-
         $tasks = Array();
         foreach($task_ids as $id) {
-            $task_id = $id['task_id'];
-            $result = $GLOBALS['DB']->query("SELECT * FROM tasks WHERE id = {$task_id};");
-            $returned_task = $result->fetchAll(PDO::FETCH_ASSOC);
-
-            $description = $returned_task[0]['description'];
-            $id = $returned_task[0]['id'];
-            $due_date = $returned_task[0]['due_date'];
-            $new_task = new Task($description, $id, $due_date);
+            // $task_id = $id['task_id'];
+            // $result = $GLOBALS['DB']->query("SELECT * FROM tasks WHERE id = {$task_id};");
+            // $returned_task = $result->fetchAll(PDO::FETCH_ASSOC);
+            $description = $id['description'];
+            $posid = $id['task_id'];
+            $due_date = $id['due_date'];
+            $new_task = new Task($description, $posid, $due_date);
             array_push($tasks, $new_task);
         }
         return $tasks;
